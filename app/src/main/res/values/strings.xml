@@ -2,4 +2,7 @@
     <string name="app_name">MangaReader</string>
     <string name="reminder">reminder</string>
     <string name="done">done</string>
+    <string name="penulis">penulis</string>
+    <string name="genre">genre</string>
+    <string name="sinopsis">sinopsis</string>
 </resources>
