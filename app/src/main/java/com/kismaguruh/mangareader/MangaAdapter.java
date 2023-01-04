@@ -1,6 +1,7 @@
 package com.kismaguruh.mangareader;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,56 +12,52 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-    public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.ViewHolder> {
+import com.bumptech.glide.Glide;
 
-        MangaData[] MangaData;
-        Context context;
+import java.util.ArrayList;
 
-        public MangaAdapter(MangaData[] MangaData, MainActivity activity) {
-            this.MangaData = MangaData;
-            this.context = activity;
-        }
+public class MangaAdapter extends RecyclerView.Adapter<MangaAdapter.ListViewHolder> {
+    private ArrayList<MangaEntity> listManga;
 
-        @NonNull
-        @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-            View view = layoutInflater.inflate(R.layout.manga_item_list,parent,false);
-            ViewHolder viewHolder = new ViewHolder(view);
-            return viewHolder;
-        }
+    public MangaAdapter(ArrayList<MangaEntity>list) {this.listManga = list;}
 
-        @Override
-        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            final MangaData mangadata = MangaData[position];
-            holder.MangaName.setText(mangadata.getMangaName());
-            holder.MangaImage.setImageResource(mangadata.getMangaImage());
+    @NonNull
+    @Override
+    public MangaAdapter.ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.manga_item_list,parent,false);
+        return new ListViewHolder(view);
+    }
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(context, mangadata.getMangaName(), Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-
-        @Override
-        public int getItemCount() {
-            return MangaData.length;
-        }
-
-
-        public class ViewHolder extends RecyclerView.ViewHolder{
-            ImageView MangaImage;
-            TextView MangaName;
-
-            public ViewHolder(@NonNull View itemView) {
-                super(itemView);
-                MangaImage = itemView.findViewById(R.id.imageview);
-                MangaName = itemView.findViewById(R.id.textName);
-
+    @Override
+    public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
+        final MangaEntity mangaEntity = listManga.get(position);
+        Glide.with(holder.itemView.getContext())
+                .load(mangaEntity.getMangagambar())
+                .into(holder.imgManga);
+        holder.tvname.setText(mangaEntity.getManganame());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(), Detail_Activity.class);
+                intent.putExtra("MANGA",mangaEntity);
+                holder.itemView.getContext().startActivity(intent);
             }
-        }
+        });
 
     }
 
+    @Override
+    public int getItemCount() {
+        return listManga.size();
+    }
+
+    public class ListViewHolder extends RecyclerView.ViewHolder {
+        ImageView imgManga;
+        TextView tvname;
+        public ListViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imgManga = itemView.findViewById(R.id.imagemanga);
+            tvname = itemView.findViewById(R.id.textNamemanga);
+        }
+    }
+}

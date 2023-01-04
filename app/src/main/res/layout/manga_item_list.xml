@@ -21,7 +21,7 @@
             <ImageView
                 android:layout_margin="10dp"
                 android:src="@drawable/image"
-                android:id="@+id/imageview"
+                android:id="@+id/imagemanga"
                 android:layout_width="120dp"
                 android:layout_height="150dp"/>
 
@@ -33,7 +33,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textName"
+                    android:id="@+id/textNamemanga"
                     android:textColor="#000"
                     android:textStyle="bold"
                     android:textSize="25sp"

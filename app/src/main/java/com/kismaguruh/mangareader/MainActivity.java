@@ -1,28 +1,43 @@
 package com.kismaguruh.mangareader;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView rvManga;
+    private ArrayList<MangaEntity>list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        rvManga = findViewById(R.id.recyclerView);
+        rvManga.setHasFixedSize(true);
 
-        MangaData[] mangaData = new MangaData[]{
-                new MangaData("One Piece",R.drawable.image),
-                new MangaData("Black Clover",R.drawable.image1),
-                new MangaData("One Punch Man",R.drawable.image2),
-        };
-        MangaAdapter mangaAdapter = new MangaAdapter(mangaData, MainActivity.this);
-            recyclerView.setAdapter(mangaAdapter);
+        list.addAll(MangaData.getListManga());
+        showRecyclerList();
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (rvManga.getVisibility() == View.VISIBLE){
+            outState.putBoolean("reply_visible", true);
+        }
+    }
+
+    private void showRecyclerList(){
+        rvManga.setLayoutManager(new LinearLayoutManager(this));
+        MangaAdapter mangaAdapter = new MangaAdapter(list);
+        rvManga.setAdapter(mangaAdapter);
     }
 }
