@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 
@@ -39,5 +40,6 @@ public class MainActivity extends AppCompatActivity {
         rvManga.setLayoutManager(new LinearLayoutManager(this));
         MangaAdapter mangaAdapter = new MangaAdapter(list);
         rvManga.setAdapter(mangaAdapter);
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.black)));
     }
 }
