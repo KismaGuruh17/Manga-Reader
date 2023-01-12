@@ -9,7 +9,7 @@
         app:cardElevation="10dp"
         app:cardCornerRadius="10dp"
         android:layout_margin="5dp"
-        app:cardBackgroundColor="#0081C9"
+        app:cardBackgroundColor="#5ce1e6"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -20,7 +20,7 @@
 
             <ImageView
                 android:layout_margin="10dp"
-                android:src="@drawable/image"
+                android:src="@drawable/onepiece"
                 android:id="@+id/imagemanga"
                 android:layout_width="120dp"
                 android:layout_height="150dp"/>

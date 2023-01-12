@@ -38,7 +38,7 @@ public class Detail_Activity extends AppCompatActivity {
                 .load(manga.getMangagambar())
                 .into(imgManga);
         getSupportActionBar().setTitle(manga.getManganame());
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.teal_700)));
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.biru_toska)));
     }
 
 }

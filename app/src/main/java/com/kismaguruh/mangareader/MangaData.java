@@ -48,9 +48,9 @@ public class MangaData {
     };
 
     private static int[] mangagambar = {
-            R.drawable.image,
-            R.drawable.image1,
-            R.drawable.image2,
+            R.drawable.onepiece,
+            R.drawable.blackclover,
+            R.drawable.onepunchman,
             R.drawable.maougakuin,
             R.drawable.naruto,
     };

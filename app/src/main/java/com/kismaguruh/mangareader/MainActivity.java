@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         list.addAll(MangaData.getListManga());
         showRecyclerList();
+
+        getSupportActionBar().hide();
     }
 
     @Override

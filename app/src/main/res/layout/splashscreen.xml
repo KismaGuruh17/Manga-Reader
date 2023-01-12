@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="#5ce1e6"
     tools:context=".SplashActivity">
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="412dp"
-        android:layout_height="523dp"
+        android:layout_width="283dp"
+        android:layout_height="330dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/maougakuin"/>
+        app:layout_constraintVertical_bias="0.286"
+        app:srcCompat="@drawable/logo" />
 
     <ProgressBar
         android:id="@+id/progressBar"

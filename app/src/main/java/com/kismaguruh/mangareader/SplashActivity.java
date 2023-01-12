@@ -8,13 +8,14 @@ import android.widget.ProgressBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
-    private static int SPLASH_DURATION_TIME = 5000;
+    private static int SPLASH_DURATION_TIME = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashscreen);
 
+        getSupportActionBar().hide();
         ProgressBar progressBar = (ProgressBar)findViewById(R.id.progressBar);
         progressBar.setVisibility(ProgressBar.VISIBLE);
         new Handler().postDelayed(new Runnable() {
