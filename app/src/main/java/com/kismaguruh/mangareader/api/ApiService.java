@@ -4,9 +4,15 @@ import com.kismaguruh.mangareader.response.ResponseItem;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 interface ApiService {
-    @GET("comic/popular/page/1")
-    Call<ResponseItem> getManga();
+    @GET("MANGA")
+    Call<ResponseItem> getManga(@Query("query") String mangaName);
+
+    @GET("manga/now_playing")
+    Call<ResponseItem> getNowPlaying();
+
+
 
 }
